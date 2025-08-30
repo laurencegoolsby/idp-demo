@@ -1,0 +1,47 @@
+/* Layout Styles */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  background-color: #f5f7fa;
+  flex: 1;
+  display: flex;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.upload-section {
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.results-section {
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .upload-section,
+  .results-section {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .upload-section,
+  .results-section {
+    width: 100%;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,46 @@
+/* Upload Controls Layout */
+.upload-controls {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+
+
+.endpoint-toggle {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #f8fbff;
+  border: 1px solid #e1e5e9;
+  border-radius: 6px;
+}
+
+.upload-wrapper {
+  flex: 1;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .upload-controls {
+    gap: 24px;
+  }
+  
+
+}
+
+@media (max-width: 768px) {
+  .upload-controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+
+  
+  .upload-wrapper {
+    width: 100%;
+  }
+  
+  .endpoint-toggle {
+    margin-top: 0;
+  }
+}

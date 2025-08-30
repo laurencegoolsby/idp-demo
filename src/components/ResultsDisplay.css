@@ -1,0 +1,180 @@
+/* Results Display Styles */
+.results-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.unavailable-message {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+
+.unavailable-message p {
+  margin: 0;
+  color: #856404;
+  font-size: 14px;
+}
+
+.validation-container {
+  margin-bottom: 16px;
+}
+
+.validation-box {
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.validation-box.success {
+  background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+  border: 1px solid #28a745;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.15);
+}
+
+.validation-box.warning {
+  background: linear-gradient(135deg, #fef7e0 0%, #fdf2d0 100%);
+  border: 1px solid #f0d000;
+  box-shadow: 0 4px 12px rgba(240, 208, 0, 0.15);
+}
+
+.validation-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.validation-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.validation-box.success .validation-icon {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.validation-box.warning .validation-icon {
+  background: linear-gradient(135deg, #f0d000 0%, #e6c200 100%);
+  box-shadow: 0 2px 8px rgba(240, 208, 0, 0.3);
+}
+
+.validation-icon span {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.validation-text {
+  flex: 1;
+}
+
+.validation-title {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.validation-box.success .validation-title {
+  color: #155724;
+}
+
+.validation-box.warning .validation-title {
+  color: #8b6914;
+}
+
+.validation-description {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.validation-box.success .validation-description {
+  color: #0f5132;
+}
+
+.validation-box.warning .validation-description {
+  color: #a67c00;
+}
+
+.validation-items-list {
+  margin: 0;
+  padding: 0 0 0 20px;
+  background-color: transparent !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.validation-box.success .validation-items-list {
+  color: #0f5132;
+}
+
+.validation-box.warning .validation-items-list {
+  color: #a67c00;
+}
+
+.validation-items-list .validation-item {
+  font-size: 14px !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style-type: disc !important;
+}
+
+.validation-items-list .validation-item:hover {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+.collapsible-container {
+  background-color: #f8fbff;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.collapsible-header {
+  padding: 12px 16px;
+  background-color: #f0f7ff;
+  border-bottom: 1px solid #e1e5e9;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collapsible-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c5aa0;
+}
+
+.collapsible-arrow {
+  font-size: 12px;
+  color: #2c5aa0;
+}
+
+.collapsible-content {
+  padding: 16px;
+  overflow: auto;
+}
+
+.json-display {
+  margin: 0;
+  font-size: 12px;
+  color: #5a6c7d;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

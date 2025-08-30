@@ -1,0 +1,92 @@
+/* Header Styles */
+.header {
+  background-color: #003d5c;
+  color: white;
+  padding: 0;
+}
+
+.header-banner {
+  background-color: #003d5c;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.header-banner-content {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.header-main {
+  width: 100%;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-logo {
+  width: 48px;
+  height: 48px;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #003d5c;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header-subtitle {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.sign-out-btn {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (hover: hover) {
+  .sign-out-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@media (min-width: 768px) {
+  .sign-out-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: normal;
+    min-height: auto;
+    min-width: auto;
+    border-width: 1px;
+    border-radius: 4px;
+  }
+}

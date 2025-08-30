@@ -1,0 +1,70 @@
+{
+  "matched_blueprint": {
+    "arn": "arn:aws:bedrock:us-east-1:aws:blueprint/bedrock-data-automation-public-payslip",
+    "name": "Payslip",
+    "confidence": 0.98
+  },
+  "document_class": {
+    "type": "Payslip"
+  },
+  "inference_result": {
+    "EmployeeName": {
+      "FirstName": "John",
+      "LastName": "Doe",
+      "MiddleName": "",
+      "SuffixName": ""
+    },
+    "EmployeeAddress": {
+      "Line1": "123 Main Street",
+      "City": "Philadelphia",
+      "State": "PA",
+      "ZipCode": "19101",
+      "Line2": ""
+    },
+    "CurrentGrossPay": 2500.00,
+    "YTDGrossPay": 15000.00,
+    "CurrentNetPay": 1875.50,
+    "YTDNetPay": 11253.00,
+    "PayPeriodStartDate": "2024-01-01",
+    "PayPeriodEndDate": "2024-01-15",
+    "PayDate": "2024-01-16",
+    "FederalTaxes": [{
+      "Period": 375.00,
+      "YTD": 2250.00,
+      "ItemDescription": "Federal Income Tax"
+    }],
+    "StateTaxes": [{
+      "Period": 125.00,
+      "YTD": 750.00,
+      "ItemDescription": "PA State Tax"
+    }]
+  },
+  "explainability_info": {
+    "EmployeeName": {
+      "FirstName": {
+        "success": true,
+        "confidence": 0.95,
+        "type": "string",
+        "value": "John"
+      },
+      "LastName": {
+        "success": true,
+        "confidence": 0.97,
+        "type": "string",
+        "value": "Doe"
+      }
+    },
+    "CurrentGrossPay": {
+      "success": true,
+      "confidence": 0.92,
+      "type": "number",
+      "value": 2500.00
+    },
+    "CurrentNetPay": {
+      "success": true,
+      "confidence": 0.89,
+      "type": "number",
+      "value": 1875.50
+    }
+  }
+}

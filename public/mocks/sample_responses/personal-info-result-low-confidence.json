@@ -1,0 +1,74 @@
+{
+  "matched_blueprint": {
+    "arn": "arn:aws:bedrock:us-east-1:aws:blueprint/bedrock-data-automation-public-drivers-license",
+    "name": "Drivers License",
+    "confidence": 0.67
+  },
+  "document_class": {
+    "type": "DriversLicense"
+  },
+  "inference_result": {
+    "FullName": "Jane Smith",
+    "DateOfBirth": "1985-03-15",
+    "Address": {
+      "Line1": "456 Oak Avenue",
+      "City": "Pittsburgh",
+      "State": "PA",
+      "ZipCode": "15213",
+      "Line2": ""
+    },
+    "LicenseNumber": "DL123456789",
+    "ExpirationDate": "2028-03-15",
+    "Restrictions": "None",
+    "Class": "C",
+    "Sex": "F",
+    "Height": "5-06",
+    "Weight": "130"
+  },
+  "explainability_info": {
+    "FullName": {
+      "success": false,
+      "confidence": 0.41,
+      "type": "string",
+      "value": "Jane Smith"
+    },
+    "DateOfBirth": {
+      "success": false,
+      "confidence": 0.33,
+      "type": "string",
+      "value": "1985-03-15"
+    },
+    "Address": {
+      "Line1": {
+        "success": true,
+        "confidence": 0.82,
+        "type": "string",
+        "value": "456 Oak Avenue"
+      },
+      "State": {
+        "success": true,
+        "confidence": 0.95,
+        "type": "string",
+        "value": "PA"
+      },
+      "ZipCode": {
+        "success": false,
+        "confidence": 0.47,
+        "type": "string",
+        "value": "15213"
+      }
+    },
+    "LicenseNumber": {
+      "success": false,
+      "confidence": 0.29,
+      "type": "string",
+      "value": "DL123456789"
+    },
+    "ExpirationDate": {
+      "success": true,
+      "confidence": 0.88,
+      "type": "string",
+      "value": "2028-03-15"
+    }
+  }
+}

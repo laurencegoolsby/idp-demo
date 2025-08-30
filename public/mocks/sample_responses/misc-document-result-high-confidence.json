@@ -1,0 +1,73 @@
+{
+  "matched_blueprint": {
+    "arn": "arn:aws:bedrock:us-east-1:aws:blueprint/bedrock-data-automation-public-utility-bill",
+    "name": "Utility Bill",
+    "confidence": 0.91
+  },
+  "document_class": {
+    "type": "UtilityBill"
+  },
+  "inference_result": {
+    "AccountHolder": "Robert Johnson",
+    "ServiceAddress": {
+      "Line1": "789 Pine Street",
+      "City": "Harrisburg",
+      "State": "PA",
+      "ZipCode": "17101",
+      "Line2": ""
+    },
+    "BillDate": "2024-01-01",
+    "DueDate": "2024-01-25",
+    "TotalAmount": 145.67,
+    "ServiceType": "Electric",
+    "AccountNumber": "ACC789012345",
+    "ServicePeriod": {
+      "StartDate": "2023-12-01",
+      "EndDate": "2023-12-31"
+    },
+    "Usage": {
+      "Amount": 850,
+      "Unit": "kWh"
+    }
+  },
+  "explainability_info": {
+    "AccountHolder": {
+      "success": true,
+      "confidence": 0.95,
+      "type": "string",
+      "value": "Robert Johnson"
+    },
+    "ServiceAddress": {
+      "Line1": {
+        "success": true,
+        "confidence": 0.88,
+        "type": "string",
+        "value": "789 Pine Street"
+      },
+      "State": {
+        "success": true,
+        "confidence": 0.97,
+        "type": "string",
+        "value": "PA"
+      },
+      "ZipCode": {
+        "success": true,
+        "confidence": 0.92,
+        "type": "string",
+        "value": "17101"
+      }
+    },
+    "TotalAmount": {
+      "success": true,
+      "confidence": 0.89,
+      "type": "number",
+      "value": 145.67
+    },
+    "AccountNumber": {
+      "success": true,
+      "confidence": 0.86,
+      "type": "string",
+      "value": "ACC789012345"
+    }
+  }
+}

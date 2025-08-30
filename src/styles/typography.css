@@ -1,0 +1,28 @@
+/* Typography Styles */
+.section-title {
+  color: #0f4c75;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #0f4c75;
+  padding-bottom: 8px;
+}
+
+.section-subtitle {
+  color: #0f4c75;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  color: #5a6c7d;
+  font-size: 14px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.results-text {
+  color: #5a6c7d;
+  text-align: center;
+  font-size: 16px;
+}
