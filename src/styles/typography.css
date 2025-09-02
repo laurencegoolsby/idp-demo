@@ -1,8 +1,9 @@
 /* Typography Styles */
 .section-title {
   color: #0f4c75;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
+  margin-top: 0px;
   margin-bottom: 8px;
   border-bottom: 1px solid #0f4c75;
   padding-bottom: 8px;

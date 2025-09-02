@@ -3,9 +3,15 @@ export const uploadFile = async (
   onProgress: (progress: number | ((prev: number) => number)) => void
 ): Promise<any> => {
   const endpoint = import.meta.env.VITE_UPLOAD_DOCUMENT_ENDPOINT;
+  const mockMode = import.meta.env.VITE_MOCK_UPLOAD === 'true';
   
-  if (!endpoint) {
+  if (!endpoint && !mockMode) {
     throw new Error('Upload endpoint not configured. Please set VITE_UPLOAD_DOCUMENT_ENDPOINT environment variable.');
+  }
+  
+  // Mock upload for testing when backend is down
+  if (mockMode) {
+    return simulateMockUpload(file, onProgress);
   }
   
   const formData = new FormData();
@@ -88,5 +94,83 @@ export const uploadFile = async (
     }
     
     throw error;
+  }
+};
+
+const simulateMockUpload = async (
+  file: File,
+  onProgress: (progress: number | ((prev: number) => number)) => void
+): Promise<any> => {
+  // Simulate realistic upload progress
+  let progress = 0;
+  const progressInterval = setInterval(() => {
+    progress += Math.random() * 15 + 5; // 5-20% increments
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(progressInterval);
+    }
+    onProgress(progress);
+  }, 200 + Math.random() * 300); // 200-500ms intervals
+  
+  // Wait for progress to complete
+  await new Promise(resolve => {
+    const checkProgress = () => {
+      if (progress >= 100) {
+        resolve(undefined);
+      } else {
+        setTimeout(checkProgress, 100);
+      }
+    };
+    checkProgress();
+  });
+  
+  // Randomly select a mock response file
+  const mockFiles = [
+    'document-processing-result-high-confidence.json',
+    'document-processing-result-low-confidence.json',
+    'misc-document-result-high-confidence.json',
+    'misc-document-result-low-confidence.json',
+    'personal-info-result-high-confidence.json',
+    'personal-info-result-low-confidence.json'
+  ];
+  
+  const randomFile = mockFiles[Math.floor(Math.random() * mockFiles.length)];
+  
+  try {
+    const response = await fetch(`/mocks/sample_responses/${randomFile}`);
+    if (!response.ok) {
+      throw new Error(`Failed to load mock file: ${randomFile}`);
+    }
+    const mockData = await response.json();
+    
+    // Return mock response with metadata
+    return {
+      success: true,
+      message: 'Document processed successfully',
+      fileId: `mock-${Date.now()}`,
+      fileName: file.name,
+      fileSize: file.size,
+      uploadTime: new Date().toISOString(),
+      processingStatus: 'completed',
+      s3Result: mockData
+    };
+  } catch (error) {
+    console.error('Failed to load mock response:', error);
+    // Fallback to simple mock if file loading fails
+    return {
+      success: true,
+      message: 'Document processed successfully (fallback)',
+      fileId: `mock-${Date.now()}`,
+      fileName: file.name,
+      fileSize: file.size,
+      uploadTime: new Date().toISOString(),
+      processingStatus: 'completed',
+      s3Result: {
+        documentType: 'unknown',
+        confidence: 0.5,
+        fields: {},
+        rawText: 'Mock processing failed to load sample data'
+      }
+    };
   }
 };

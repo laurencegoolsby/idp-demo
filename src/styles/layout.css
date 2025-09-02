@@ -8,40 +8,103 @@
 .main-content {
   background-color: #f5f7fa;
   flex: 1;
-  display: flex;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 15px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto auto;
+  gap: 15px;
+  height: 100%;
+  width: 100%;
+}
+
+.grid-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
 }
 
 .upload-section {
-  width: 50%;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .results-section {
-  width: 50%;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.files-section {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.preview-section {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.json-section {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+
+.preview-section {
+  margin-top: 0;
+}
+
+.subsection-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #003d5c;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e1e5e9;
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .upload-section,
-  .results-section {
-    padding: 12px;
+  .grid-item {
+    padding: 15px;
   }
 }
 
 @media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, auto);
   }
   
-  .upload-section,
+  .upload-section {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
   .results-section {
-    width: 100%;
-    padding: 10px;
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  .files-section {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  .preview-section {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  
+  .json-section {
+    grid-column: 1;
+    grid-row: 5;
+  }
+  
+  .grid-item {
+    padding: 15px;
   }
 }

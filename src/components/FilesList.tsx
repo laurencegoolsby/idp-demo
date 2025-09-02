@@ -12,7 +12,6 @@ export default function FilesList({ files, selectedFile, onFileSelect, formatFil
 
   return (
     <div className="files-list">
-      <h3 className="selector-title">Uploaded Files:</h3>
       {files.map((file) => (
         <div 
           key={file.id} 

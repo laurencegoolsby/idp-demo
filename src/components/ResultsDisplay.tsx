@@ -1,7 +1,6 @@
 import { UploadedFile } from '../hooks/useFileUpload';
 import ExplainabilityRenderer from './ExplainabilityRenderer';
 import ValidationBox from './ValidationBox';
-import CollapsibleJsonDisplay from './CollapsibleJsonDisplay';
 import LoadingState from './LoadingState';
 import { validateDocument } from '../utils/documentValidation';
 import './ResultsDisplay.css';
@@ -13,6 +12,7 @@ interface ResultsDisplayProps {
   uploadProgress: number;
   processingResult: any;
   showResults: boolean;
+  previewFile?: File | null;
 }
 
 export default function ResultsDisplay({ 
@@ -21,9 +21,9 @@ export default function ResultsDisplay({
   uploadInProgress, 
   uploadProgress, 
   processingResult, 
-  showResults 
+  showResults
 }: ResultsDisplayProps) {
-  if (uploadInProgress && selectedFile) {
+  if (uploadInProgress) {
     return <LoadingState progress={uploadProgress} />;
   }
 
@@ -54,20 +54,14 @@ export default function ResultsDisplay({
               </p>
             </div>
           ) : (
-            <>
-              {selectedFile.apiResponse.s3Result && (
-                <div className="validation-container">
-                  <ValidationBox 
-                    validation={validateDocument(selectedFile.apiResponse.s3Result)}
-                    fileName={selectedFile.name}
-                  />
-                </div>
-              )}
-              <CollapsibleJsonDisplay 
-                data={selectedFile.apiResponse.s3Result || selectedFile.apiResponse}
-                title="Document Processing Response JSON"
-              />
-            </>
+            selectedFile.apiResponse.s3Result && (
+              <div className="validation-container">
+                <ValidationBox 
+                  validation={validateDocument(selectedFile.apiResponse.s3Result)}
+                  fileName={selectedFile.name}
+                />
+              </div>
+            )
           )}
         </div>
       ) : processingResult && showResults ? (

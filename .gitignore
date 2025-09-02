@@ -34,3 +34,33 @@ dist-ssr
 .amplify
 amplify_outputs*
 amplifyconfiguration*
+
+# CDK
+cdk.context.json
+cdk.out/
+.cdk.staging/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Coverage reports
+coverage/
+*.lcov
+
+# TypeScript cache
+*.tsbuildinfo
